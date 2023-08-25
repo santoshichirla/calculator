@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+        button{
+            height:100px;
+            width:100px;
+            background-color: cadetblue;
+        }
+        h1{
+            color: crimson;
+        }
+      #result
+      {
+        width:406px;
+        height:100px;
+        background-color:aquamarine;
+        font-size: medium;
+      }
+      .ope
+      {
+        color: red;
+      }
+      body{
+        background-image: url("https://c0.wallpaperflare.com/preview/778/9/142/geometry-mathematics-calculator-cube.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+    </style>
+</head>
+<body>
+    <center>
+    <h1>CALCULATOR</h1>
+    <input type="text" placeholder="0" id="result">
+    <table>
+        <tr>
+            <td><button onclick="display('7')">7</td></button>
+            <td><button onclick="display('8')">8</td></button>
+            <td><button onclick="display('9')">9</td></button>
+            <td><button onclick="display('+')" class="ope">+</td></button>
+        </tr>
+        <tr>
+            <td><button onclick="display('4')">4</td></button>
+            <td><button onclick="display('5')">5</td></button>
+            <td><button onclick="display('6')">6</td></button>
+            <td><button onclick="display('-')" class="ope">-</td></button>
+        </tr>
+        <tr>
+            <td><button onclick="display('1')">1</td></button>
+            <td><button onclick="display('2')">2</td></button>
+            <td><button onclick="display('3')">3</td></button>
+            <td><button onclick="display('*')" class="ope">*</td></button>
+        </tr>
+        <tr>
+            <td><button onclick="display('0')">0</td></button>
+            <td><button onclick="clr('c')">C</td></button>
+            <td><button onclick="calculate('=')" class="ope">=</td></button>
+            <td><button onclick="display('/')" class="ope">/</td></button>
+        </tr>
+    </table>
+</center>
+<script>
+    let output=document.getElementById("result");
+    function display(num)
+    {
+        output.value+=num
+    }
+    function calculate()
+    {
+        try{
+            output.value=eval(output.value);
+        }
+        catch(err)
+      {
+        document.getElementById('result').innerHTML='syntax error';
+        alert("invalid");
+      }
+        
+    }
+    function clr()
+    {
+        output.value="";
+    }
+</script>
+</body>
+</html>
